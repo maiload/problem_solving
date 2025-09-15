@@ -29,7 +29,7 @@ Literal로 생성한 문자열은 constant String pool에 저장되고, new로 �
 
 ### Time Complexity
 - 시간 복잡도: 입력 크기에 비해 수행 시간이 얼마나 걸리는지
-  - 주로 Big-O 표기법 사용
+  - 주로 `Big-O` 표기법 사용
   - 정의된 입력 데이터 중 가장 최악의 상황을 포함한 시간의 상한선
   - 편의상 1초에 약 1억번의 연산을 기준으로 소요시간 가늠
 
@@ -60,20 +60,20 @@ for (int i = 0; i < N; i++) {
 **배열의 연산**
 1. get
    - 메모리가 연속적이기 때문에 배열의 시작 주소로부터 떨어진 원소의 주소를 계산
-   - `시작 주소 + index * 자료형` -> O(1)
+   - `시작 주소 + index * 자료형` -> `O(1)`
 2. change
-   - `시작 주소 + index * 자료형` -> O(1)
+   - `시작 주소 + index * 자료형` -> `O(1)`
 3. append
    - 배열이 꽉 차있을 경우에는 더 이상 추가 불가
-   - `배열 길이 검사 + 값 추가` -> O(1)
+   - `배열 길이 검사 + 값 추가` -> `O(1)`
 4. insert
    - 배열의 중간에 값을 추가
      - 원하는 인덱스부터 끝 인덱스까지 인덱스를 뒤로 한 칸씩 이동 후 추가
-   - `최악의 경우 모든 인덱스를 이동` -> O(N)
+   - `최악의 경우 모든 인덱스를 이동` -> `O(N)`
 5. erase
    - 배열의 중간 값을 삭제
      - 원하는 인덱스를 삭제 후 삭제된 인덱스 뒤부터 앞으로 한 칸씩 이동
-   - `최악의 경우 모든 인덱스를 이동` -> O(N)
+   - `최악의 경우 모든 인덱스를 이동` -> `O(N)`
 
 <br>
 
@@ -82,6 +82,33 @@ for (int i = 0; i < N; i++) {
   - 정답률 100% 보장
 - 시뮬레이션
   - 요구사항을 확실히 분석
+
+<br>
+
+### Sort
+- 데이터 집합을 적합한 순서로 배치하는 것
+
+**정렬 알고리즘**
+- `$N^2$` 정렬 알고리즘
+  - Bubble Sort, Selection Sort, Insertion Sort
+- `NlogN` 정렬 알고리즘
+  - Quick Sort, Merge Sort, Heap Sort
+- 그외 알고리즘
+  - Counting Sort, Radix Sort, Bucket Sort ...
+
+**Arrays.sort**
+- java.util 패키지
+- 자료형
+  - primitive[]
+    - 오름차순 정렬
+    - un-stable
+    - in-place: 추가적인 메모리 공간을 거의 사용 X
+    - Dual-Pivot Quick Sort -> 평균(`NlogN`), 최악(`$N^2$`)
+  - Object[]
+    - 사전순 정렬
+    - stable: 값이 같은 원소들의 기존 상대적 순서가 정렬 후에도 유지
+    - Tim Sort(Merge Sort 기반) -> 평균(`NlogN`), 최악(`NlogN`)
+
 
 <br>
 
