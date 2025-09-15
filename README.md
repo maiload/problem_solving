@@ -89,9 +89,9 @@ for (int i = 0; i < N; i++) {
 - 데이터 집합을 적합한 순서로 배치하는 것
 
 **정렬 알고리즘**
-- `$N^2$` 정렬 알고리즘
+- $N^2$ 정렬 알고리즘
   - Bubble Sort, Selection Sort, Insertion Sort
-- `NlogN` 정렬 알고리즘
+- NlogN 정렬 알고리즘
   - Quick Sort, Merge Sort, Heap Sort
 - 그외 알고리즘
   - Counting Sort, Radix Sort, Bucket Sort ...
@@ -101,13 +101,13 @@ for (int i = 0; i < N; i++) {
 - 자료형
   - primitive[]
     - 오름차순 정렬
-    - un-stable
-    - in-place: 추가적인 메모리 공간을 거의 사용 X
-    - Dual-Pivot Quick Sort -> 평균(`NlogN`), 최악(`$N^2$`)
+    - `un-stable`
+    - `in-place`: 추가적인 메모리 공간을 거의 사용 X
+    - Dual-Pivot Quick Sort -> 평균(NlogN), 최악($N^2$)
   - Object[]
     - 사전순 정렬
-    - stable: 값이 같은 원소들의 기존 상대적 순서가 정렬 후에도 유지
-    - Tim Sort(Merge Sort 기반) -> 평균(`NlogN`), 최악(`NlogN`)
+    - `stable`: 값이 같은 원소들의 기존 상대적 순서가 정렬 후에도 유지
+    - Tim Sort(Merge Sort 기반) -> 평균(NlogN), 최악(NlogN)
 
 
 <br>
