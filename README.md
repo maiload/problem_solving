@@ -109,6 +109,40 @@ for (int i = 0; i < N; i++) {
     - `stable`: 값이 같은 원소들의 기존 상대적 순서가 정렬 후에도 유지
     - Tim Sort(Merge Sort 기반) -> 평균(NlogN), 최악(NlogN)
 
+**Set**
+- java.util 패키지
+- 중복된 원소를 가지지 않는 Collection
+- add(), remove(), contains()
+- 구현체
+  - **HashSet**
+    - Hash Table 기반의 un-ordered Collection
+    - 삽입, 삭제, 조회 연산 -> 평균 O(1), 최악 O(n) 
+    - null 저장 가능
+  - **TreeSet**
+    - Binary Search Tree 기반의 ordered Collection
+    - 삽입, 삭제, 조회 연산 -> 항상 O(logN)
+    - null 저장 X
+
+**Map**
+- java.util 패키지
+- 중복된 key를 가지지 않고, <key, value> 쌍을 담는 Collection
+- put(), remove(), containsKey()
+- 구현체
+  - **HashMap**
+    - Hash Table 기반의 un-ordered Collection
+    - 삽입, 삭제, 조회 연산 -> 평균 O(1), 최악 O(n)
+    - null 저장 가능
+    - key 순서가 보장 X
+  - **TreeMap**
+    - Binary Search Tree 기반의 ordered Collection
+    - 삽입, 삭제, 조회 연산 -> 항상 O(logN)
+    - null 저장 X
+    - key가 `정렬된 순서`로 보장
+  - **LinkedHashMap**
+    - Hash Table + Double Linked List 기반의 ordered Collection
+    - 삽입, 삭제, 조회 연산 -> 평균 O(1), 최악 O(n)
+    - null 저장 가능
+    - key가 `삽입된 순서`로 보장
 
 <br>
 
