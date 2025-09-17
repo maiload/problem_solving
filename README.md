@@ -123,7 +123,7 @@ for (int i = 0; i < N; i++) {
 - 구현체
   - **HashSet**
     - Hash Table 기반의 un-ordered Collection
-    - 삽입, 삭제, 조회 연산 -> 평균 O(1), 최악 O(n) 
+    - 삽입, 삭제, 조회 연산 -> 평균 O(1), 최악 O(N) 
     - null 저장 가능
   - **TreeSet**
     - Binary Search Tree 기반의 ordered Collection
@@ -137,7 +137,7 @@ for (int i = 0; i < N; i++) {
 - 구현체
   - **HashMap**
     - Hash Table 기반의 un-ordered Collection
-    - 삽입, 삭제, 조회 연산 -> 평균 O(1), 최악 O(n)
+    - 삽입, 삭제, 조회 연산 -> 평균 O(1), 최악 O(N)
     - null 저장 가능
     - key 순서가 보장 X
   - **TreeMap**
@@ -147,7 +147,7 @@ for (int i = 0; i < N; i++) {
     - key가 `정렬된 순서`로 보장
   - **LinkedHashMap**
     - Hash Table + Double Linked List 기반의 ordered Collection
-    - 삽입, 삭제, 조회 연산 -> 평균 O(1), 최악 O(n)
+    - 삽입, 삭제, 조회 연산 -> 평균 O(1), 최악 O(N)
     - null 저장 가능
     - key가 `삽입된 순서`로 보장
 
@@ -175,3 +175,29 @@ for (int i = 0; i < N; i++) {
 <br>
 
 ### Binary Search
+> Q. N개의 원소를 가진 배열에서 X라는 값이 있는지 알고 싶다면? <br>
+> (또는 해당 값보다 작은/큰 값의 개수는?) <br>
+> (또는 해당 값의 근삿값은?)
+
+A1. 모든 원소를 차례로 탐색: O(N) <br>
+
+A2. `정렬` 후 Binary Search(이진 탐색): O(logN)
+- 중간 값을 기준으로 크기를 비교해 탐색 범위를 절반씩 줄여가며 찾는 방법
+  ```
+  boolean isExist(int[] arr, int X) {
+     int l = 0, r = arr.length - 1;
+     while (l <= r) {
+         int m = (l + r) / 2;
+         if (arr[m] < X) l = m + 1;
+         else if (arr[m] > X) r = m - 1;
+         else return true;
+     }   
+     return false;
+  }
+  ```
+  ```
+  int idx = Arrays.binarySearch(arr, x);
+  // 값이 존재하면 index, 없으면 -1 반환
+  ```
+
+   
