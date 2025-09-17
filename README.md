@@ -1,7 +1,7 @@
 # ps
 - - -
-## Part 1.
-### String
+# Part 1.
+## String
 - java.lang 패키지
 - immutable object
 - StringBuilder(변경 가능한 문자열)
@@ -27,7 +27,7 @@ Literal로 생성한 문자열은 constant String pool에 저장되고, new로 �
 | indexOf(int ch, int fromIndex)                         | int|
 <br>
 
-### Time Complexity
+## Time Complexity
 - 시간 복잡도: 입력 크기에 비해 수행 시간이 얼마나 걸리는지
   - 주로 `Big-O` 표기법 사용
   - 정의된 입력 데이터 중 가장 최악의 상황을 포함한 시간의 상한선
@@ -53,7 +53,7 @@ for (int i = 0; i < N; i++) {
 
 <br>
 
-### Array
+## Array
 - 생성과 동시에 크기가 고정
 - 데이터가 메모리상에 일렬로 저장
 
@@ -84,15 +84,16 @@ for (int i = 0; i < N; i++) {
 
 <br>
 
-### Brute Force, Simulation
-- 완전 탐색: 모든 경우의 수를 시도
+## Brute Force, Simulation
+### 완전 탐색: 모든 경우의 수를 시도
   - 정답률 100% 보장
-- 시뮬레이션
+  - N개 중에서 M개를 고르는 경우 M중 for문이 필요 -> 재귀함수를 사용하면 가독성 향상
+### 시뮬레이션
   - 요구사항을 확실히 분석
 
 <br>
 
-### Sort
+## Sort
 - 데이터 집합을 적합한 순서로 배치하는 것
 
 **정렬 알고리즘**
@@ -153,7 +154,7 @@ for (int i = 0; i < N; i++) {
 
 <br>
 
-### Prefix Sum
+## Prefix Sum
 누적합 배열은 구간합 연산뿐만 아니라 [L, R] 구간의 연산 결과를 구하기 위해 [1, R] 연산에서 [1, L-1] 구간의 연산을 제거하는 복원작업이 가능한 다른 종류의 연산에도 적용할 수 있습니다.
 > 교환법칙, 결합벅칙이 성립하며 역원이 존재하는 연산은 복원이 가능합니다. 
 >  - 항등원: 연산에서 모든 원소와 연산해도 그 원소를 그대로 돌려주는 특별한 원소
@@ -174,7 +175,7 @@ for (int i = 0; i < N; i++) {
 
 <br>
 
-### Binary Search
+## Binary Search
 Q. N개의 원소를 가진 배열에서 X라는 값이 있는지 알고 싶다면? <br>
 (또는 해당 값보다 작은/큰 값의 개수는?) <br>
 (또는 해당 값의 근삿값은?)
@@ -182,7 +183,9 @@ Q. N개의 원소를 가진 배열에서 X라는 값이 있는지 알고 싶다�
 A1. 모든 원소를 차례로 탐색: O(N) <br>
 
 A2. `정렬` 후 Binary Search(이진 탐색): O(logN)
-- 중간 값을 기준으로 크기를 비교해 탐색 범위를 절반씩 줄여가며 찾는 방법
+- 중간 값을 기준으로 크기를 비교해 탐색 범위를 절반씩 줄여가며 찾는 방법 
+- **일치하는 값**
+  - 일치하는 값의 경우 이진 탐색보다 HashSet 자료구조의 contains()를 사용하는 것이 더 빠르다 -> 평균 O(1)
   ```
   boolean isExist(int[] arr, int X) {
      int l = 0, r = arr.length - 1;
@@ -199,5 +202,25 @@ A2. `정렬` 후 Binary Search(이진 탐색): O(logN)
   int idx = Arrays.binarySearch(arr, x);
   // 값이 존재하면 index, 없으면 -1 반환
   ```
+- **근삿값**
+  - 근삿값의 경우 TreeSet 자료구조의 floor(), ceiling()을 사용할 수도 있다. -> 시간 복잡도는 동일
+  ```
+  int find(int[] arr, int x) {
+      int l = 0, r = arr.length - 1;
+      while (l <= r) {
+          int half = (l + r) / 2;
+          if (x > arr[half]) l = half + 1;
+          else if (x < arr[half]) r = half - 1;
+          else return half;
+      }
+      return r;   // X 이전 값
+      return l;   // X 다음 값
+  }
+  ```
+    > 정확히 일치하는 값이 없는 경우 마지막에 `l = half + 1` 또는 `r = half - 1` 이 수행되면서 l 값이 r 보다 커지게 된다
 
-   
+<br>
+
+## Parametric Search
+최적화 문제(최솟값, 최댓값)를 `값 X가 답이 될 수 있는가?` 라는 결정 문제로 바꾼 뒤, 그 값을 Binary Search를 사용하여 찾는 방법
+
