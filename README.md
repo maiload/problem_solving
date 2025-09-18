@@ -187,37 +187,51 @@ A2. `정렬` 후 Binary Search(이진 탐색): O(logN)
 - **일치하는 값**
   - 일치하는 값의 경우 이진 탐색보다 HashSet 자료구조의 contains()를 사용하는 것이 더 빠르다 -> 평균 O(1)
   ```
-  boolean isExist(int[] arr, int X) {
-     int l = 0, r = arr.length - 1;
-     while (l <= r) {
+  int search(int[] arr, int X) {
+     int l = 0, r = arr.length - 1;     // 폐구간
+     while (l <= r) {         
          int m = (l + r) / 2;
          if (arr[m] < X) l = m + 1;
          else if (arr[m] > X) r = m - 1;
-         else return true;
+         else return m;
      }   
-     return false;
+     return -1;
   }
   ```
   ```
   int idx = Arrays.binarySearch(arr, x);
   // 값이 존재하면 index, 없으면 -1 반환
   ```
-- **근삿값**
-  - 근삿값의 경우 TreeSet 자료구조의 floor(), ceiling()을 사용할 수도 있다. -> 시간 복잡도는 동일
+- **lowerBound, upperBound**
+  - lowerBound: x이상 중 최소값
+  - upperBound: x초과 중 최소값
+  - 중복 값이 없는 경우에는 TreeSet 자료구조의 메서드를 사용할 수도 있습니다.
+    - ceiling(x): x 이상 중 최소값 → lowerBound(x)
+    - floor(x): x 이하 중 최대값
+    - higher(x): x 초과 중 최소값 → upperBound(x) 
+    - lower(x): x 미만 중 최대값
   ```
-  int find(int[] arr, int x) {
-      int l = 0, r = arr.length - 1;
-      while (l <= r) {
-          int half = (l + r) / 2;
-          if (x > arr[half]) l = half + 1;
-          else if (x < arr[half]) r = half - 1;
-          else return half;
+  int lowerBound(int[] arr, int x) {
+      int l = 0, r = arr.length;     // 반폐구간
+      while (l < r) {          
+          int m = (l + r) / 2;
+          if (arr[m] >= x) r = m;
+          else l = m + 1;
       }
-      return r;   // X 이전 값
-      return l;   // X 다음 값
+      return l;
+  }
+  
+  int upperBound(int[] arr, int x) {
+      int l = 0, r = arr.length;     // 반폐구간
+      while (l < r) {          
+          int m = (l + r) / 2;
+          if (arr[m] > x) r = m;
+          else l = m + 1;
+      }
+      return l;
   }
   ```
-    > 정확히 일치하는 값이 없는 경우 마지막에 `l = half + 1` 또는 `r = half - 1` 이 수행되면서 l 값이 r 보다 커지게 된다
+    > 반폐구간 방식의 경우 (l == r) 이 되면 반복문이 종료되며 (0 ≤ l ≤ arr.length) 의 범위를 가집니다.
 
 <br>
 
