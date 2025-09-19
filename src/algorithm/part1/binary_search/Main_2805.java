@@ -2,7 +2,6 @@ package algorithm.part1.binary_search;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class Main_2805 {
@@ -16,14 +15,13 @@ public class Main_2805 {
         for (int i = 0; i < N; i++) {
             arr[i] = Integer.parseInt(st.nextToken());
         }
-        Arrays.sort(arr);
-        int l = 0, r = arr[N - 1];
-        while (l < r) {
-            int m = (l + r) / 2;
+        int l = 0, r = 1000000000;
+        while (l <= r) {
+            int m = (l + r + 1) / 2;
             if (cut(arr, m) >= M) l = m;
             else r = m - 1;
         }
-        System.out.println(l);
+        System.out.println(l - 1);
     }
 
     static long cut(int[] arr, int m) {
