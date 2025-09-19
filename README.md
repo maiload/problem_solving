@@ -188,7 +188,7 @@ A2. `정렬` 후 Binary Search(이진 탐색): O(logN)
   - 일치하는 값의 경우 이진 탐색보다 HashSet 자료구조의 contains()를 사용하는 것이 더 빠르다 -> 평균 O(1)
   ```
   int search(int[] arr, int X) {
-     int l = 0, r = arr.length - 1;     // 폐구간 [l, r]
+     int l = 0, r = arr.length - 1;     // 폐구간 패턴 [l, r]
      while (l <= r) {         
          int m = (l + r) / 2;
          if (arr[m] < X) l = m + 1;
@@ -210,9 +210,12 @@ A2. `정렬` 후 Binary Search(이진 탐색): O(logN)
     - floor(x): x 이하 중 최대값
     - higher(x): x 초과 중 최소값 → upperBound(x) 
     - lower(x): x 미만 중 최대값
+  > 최적값(최소/최대)을 구하는 문제는 모두 최소값을 구하는 문제로 변환이 가능
+  > - 최소값: lowerBound
+  > - 최대값: upperBound - 1
   ```
   int lowerBound(int[] arr, int x) {
-      int l = 0, r = arr.length;     // 반폐구간 [l, r)
+      int l = 0, r = arr.length;     // 반폐구간 패턴 [l, r)
       while (l < r) {          
           int m = (l + r) / 2;
           if (arr[m] >= x) r = m;
@@ -222,7 +225,7 @@ A2. `정렬` 후 Binary Search(이진 탐색): O(logN)
   }
   
   int upperBound(int[] arr, int x) {
-      int l = 0, r = arr.length;     // 반폐구간 [l, r)
+      int l = 0, r = arr.length;     // 반폐구간 패턴 [l, r)
       while (l < r) {          
           int m = (l + r) / 2;
           if (arr[m] > x) r = m;
@@ -231,14 +234,23 @@ A2. `정렬` 후 Binary Search(이진 탐색): O(logN)
       return l;
   }
   ```
-    > 반폐구간 방식의 경우 (l == r) 이 되면 반복문이 종료되며 (0 ≤ l ≤ arr.length) 의 범위를 가집니다.
+    > 폐구간 패턴, 반폐구간 패턴 선택 방법
+    > - 원하는 값이 범위 내에 있으면 폐구간 패턴
+    >   - `[l, r]`
+    >   - while (l `<=` r)
+    >   - `r = m - 1`, l = m + 1
+    > - 원하는 값이 범위끝 + 1이 될 수 있으면 반폐구간 패턴: 
+    >   - `[l, r)`
+    >   - while (l `<` r)
+    >   - `r = m`, l = m + 1
 
 <br>
 
 ## Parametric Search
-최적값 문제(최솟값, 최댓값)를 `값 X가 답이 될 수 있는가?` 라는 결정 문제로 바꾼 뒤, 그 값을 Binary Search를 사용하여 찾는 방법 <br>
-
-주로 lowerBound, upperBound와 같이 while문의 조건식에서 등호를 사용하지 않습니다.(반폐구간)
+최적값 문제를 `값 X가 답이 될 수 있는가?` 라는 결정 문제로 바꾼 뒤, 그 값을 Binary Search를 사용하여 찾는 방법
+- 문제 접근 방법
+  1. 최소값인지, 최대값인지 확인
+  2. 폐구간인지 반폐구간인기 확인
 > 기존의 Binary Search와 다른 점은 처음 주어진 배열 arr의 원소 중에서 최적값을 찾는 것이 아닌, 별도의 구하고자 하는 값의 최적값을 찾아야 하는 점입니다.
 > 따라서 l과 r의 범위를 직접 설정해야 합니다.
 > - ex. 백준 2805: 주어진 나무의 높이 배열에서의 최적값이 아닌, 절단기에 설정할 수 있는 높이(h)의 최적값을 구하는 문제
