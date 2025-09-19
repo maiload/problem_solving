@@ -19,7 +19,7 @@ public class Main_1654 {
 
         int l = 1, r = max;
         while (l <= r) {
-            int m = (l + r + 1) / 2;
+            int m = (l + r) / 2;
             if (cut(arr, m) >= N) l = m + 1;
             else r = m - 1;
         }

@@ -17,7 +17,7 @@ public class Main_2805 {
         }
         int l = 0, r = 1000000000;
         while (l <= r) {
-            int m = (l + r + 1) / 2;
+            int m = (l + r) / 2;
             if (cut(arr, m) >= M) l = m;
             else r = m - 1;
         }
