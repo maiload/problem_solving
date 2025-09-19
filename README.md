@@ -188,7 +188,7 @@ A2. `정렬` 후 Binary Search(이진 탐색): O(logN)
   - 일치하는 값의 경우 이진 탐색보다 HashSet 자료구조의 contains()를 사용하는 것이 더 빠르다 -> 평균 O(1)
   ```
   int search(int[] arr, int X) {
-     int l = 0, r = arr.length - 1;     // 폐구간
+     int l = 0, r = arr.length - 1;     // 폐구간 [l, r]
      while (l <= r) {         
          int m = (l + r) / 2;
          if (arr[m] < X) l = m + 1;
@@ -212,7 +212,7 @@ A2. `정렬` 후 Binary Search(이진 탐색): O(logN)
     - lower(x): x 미만 중 최대값
   ```
   int lowerBound(int[] arr, int x) {
-      int l = 0, r = arr.length;     // 반폐구간
+      int l = 0, r = arr.length;     // 반폐구간 [l, r)
       while (l < r) {          
           int m = (l + r) / 2;
           if (arr[m] >= x) r = m;
@@ -222,7 +222,7 @@ A2. `정렬` 후 Binary Search(이진 탐색): O(logN)
   }
   
   int upperBound(int[] arr, int x) {
-      int l = 0, r = arr.length;     // 반폐구간
+      int l = 0, r = arr.length;     // 반폐구간 [l, r)
       while (l < r) {          
           int m = (l + r) / 2;
           if (arr[m] > x) r = m;
@@ -236,5 +236,5 @@ A2. `정렬` 후 Binary Search(이진 탐색): O(logN)
 <br>
 
 ## Parametric Search
-최적화 문제(최솟값, 최댓값)를 `값 X가 답이 될 수 있는가?` 라는 결정 문제로 바꾼 뒤, 그 값을 Binary Search를 사용하여 찾는 방법
+최적값 문제(최솟값, 최댓값)를 `값 X가 답이 될 수 있는가?` 라는 결정 문제로 바꾼 뒤, 그 값을 Binary Search를 사용하여 찾는 방법
 
