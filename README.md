@@ -281,16 +281,16 @@ A2. `정렬` 후 Binary Search(이진 탐색): O(logN)
       ```
       int r = 0;
       for (int i = 0; i < N; i++) {
-          while (조건식 && r + 1 < N) {
-              ++r;
+          while (r < N) {
+              if (조건식) break;
+              r++;
           }
-          sum -= arr[i];
       }
       ```
      > Point.
+     > - 주로 이상/이하 조건에서 사용 (슬라이딩 윈도우)
      > 1. for문으로 인덱스(`int i`)로 `int l`을 대체하고, `int r = 0;`만 선언
-     > 2. while 조건식에는 `r + 1 < N`이 포함하고, while문 내부에서 r값 증가: `++r`
-     > 3. 반복문이 한 번 돌 때마다 이전 l(`l=i`)값을 제외: `-= arr[i]`
+     > 2. while 조건식: `r < N`, while문 내부에서 r값 증가: `r++`
   2. 시작/끝
       ```
       int l = 0, r = N - 1;
@@ -301,7 +301,8 @@ A2. `정렬` 후 Binary Search(이진 탐색): O(logN)
       }
       ```
      > Point.
+     > - 주로 정확한 매칭 조건에서 사용 (수렴 패턴)
      > 1. l과 r 모두 직접 선언: `int l = 0, r = N - 1;`
-     > 2. while 조건식: `l < r`, while문 내부에서 l값 증가, r값 감소: `++l`, `--r`
+     > 2. while 조건식: `l < r`, while문 내부에서 l값 증가, r값 감소: `l++`, `r--`
 
 
