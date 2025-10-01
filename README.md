@@ -281,10 +281,7 @@ A2. `정렬` 후 Binary Search(이진 탐색): O(logN)
       ```
       int r = 0;
       for (int i = 0; i < N; i++) {
-          while (r < N) {
-              if (조건식) break;
-              r++;
-          }
+          while (r < N && 조건식) r++;
       }
       ```
      > Point.
