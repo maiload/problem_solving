@@ -335,6 +335,8 @@ A2. `정렬` 후 Binary Search(이진 탐색): O(logN)
 | insert(Iter it, E e)  | O(N)  | O(N)      | O(1)       |
 | remove(int idx)       | O(N)  | O(N)      | O(N)       |
 | remove(int it)        | O(N)  | O(N)      | O(1)       |
+
+- 실제 구현체에서는 insert() 대신 add()의 오버로딩 메서드로 제공됩니다.
 > ArrayList의 add는 capacity가 다 찼을 경우 O(N)이나, 평균적인 복잡도는 O(1)로 볼 수 있습니다.
 
 <br>
