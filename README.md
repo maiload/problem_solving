@@ -305,4 +305,34 @@ A2. `정렬` 후 Binary Search(이진 탐색): O(logN)
      > 1. l과 r 모두 직접 선언: `int l = 0, r = N - 1;`
      > 2. while 조건식: `l < r`, while문 내부에서 l값 증가, r값 감소: `l++`, `r--`
 
+<br>
+
+## List
+동일한 타입의 여러 원호를 선형 집합으로 관리하는 동적 데이터 구조
+- 원소가 추가/삭제됨에 따라 크기가 변경될 수 있다.
+- 구현체
+  - **ArrayList**: index를 통한 원소 접근이 빠르지만, 원소의 삽입/제거가 느림
+  - **LinkedList**: index를 통한 원소 접근이 느리지만, 원소의 삽입/제거가 빠름
+  - Vector: ArrayList와 비슷하며 thread-safe 하기에 비교적 느릴 수 있음
+- 순서가 있는 Collection 인덱스를 통한 원소 접근 가능
+- 동일한 원소 저장 가능
+- ListIterator 제공
+
+1. ArrayList
+- 동적 배열을 사용한 List 구현체
+- [ArrayList 구현 예제](https://github.com/Acka1357/codingtest-java-20/blob/main/%EC%9A%94%EC%95%BD%EB%85%B8%ED%8A%B8/%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC_%EA%B5%AC%ED%98%84%EC%98%88%EC%A0%9C/MyArrayList.java)
+
+2. LinkedList
+- 차례로 연결된 Node를 사용한 구현체
+- [LinkedList 구현 예제](https://github.com/Acka1357/codingtest-java-20/blob/main/%EC%9A%94%EC%95%BD%EB%85%B8%ED%8A%B8/%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC_%EA%B5%AC%ED%98%84%EC%98%88%EC%A0%9C/MySingleLinkedList.java)
+
+| Operations            | Array | ArrayList | LinkedList |
+|-----------------------|-------|-----------|------------|
+| get(int idx)          | O(1)  | O(1)      | O(N)       |
+| add(E e)              | O(1)  | O(1)      | O(1)       |
+| insert(int idx, E e)  | O(N)  | O(N)      | O(N)       |
+| insert(Iter it, E e)  | O(N)  | O(N)      | O(1)       |
+| remove(int idx)       | O(N)  | O(N)      | O(N)       |
+| remove(int it)        | O(N)  | O(N)      | O(1)       |
+> ArrayList의 add는 capacity가 다 찼을 경우 O(N)이나, 평균적인 복잡도는 O(1)로 볼 수 있습니다.
 
