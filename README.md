@@ -415,4 +415,6 @@ A2. `정렬` 후 Binary Search(이진 탐색): O(logN)
    - pop: topIndex의 원소를 삭제하고 topIndex를 감소
    - 사이즈를 따로 관리하지 않아도 topIndex를 통해 알 수 있다
 
+![img.png](img/img_2.png)
+
 
