@@ -337,3 +337,35 @@ A2. `정렬` 후 Binary Search(이진 탐색): O(logN)
 | remove(int it)        | O(N)  | O(N)      | O(1)       |
 > ArrayList의 add는 capacity가 다 찼을 경우 O(N)이나, 평균적인 복잡도는 O(1)로 볼 수 있습니다.
 
+<br>
+
+## Queue
+먼저 넣은 데이터가 먼저 나오는 `선입선출` 자료구조 (`First-In First-Out`)
+- 대기열의 가장 뒤에 원소가 추가되고, 가장 앞의 원소부터 처리
+- 요청의 입력/도달 순서대로 처리하는 상황에 유용
+- ex) 티켓팅 대기열, 프린터 출력 처리, 운영체제 스케줄링, 메세지 큐 등등
+- Operations
+  - **Insert**
+    - add(e): 원소를 큐에 추가 (큐에 공간이 없다면 Exception 발생)
+    - offer(e): 원소를 큐에 추가 (큐에 공간이 없다면 false 반환)
+  - **Remove**
+    - remove(): 큐의 head 원소를 제거하고 반환 (큐가 비었다면 Exception 반환)
+    - poll(): 큐의 head 원소를 제거하고 반환 (큐가 비었다면 null 반환)
+  - **Examine**
+    - element(): 큐의 head 원소 반환 (큐가 비었다면 Exception 반환)
+    - peek(): 큐의 head 원소 반환 (큐가 비었다면 null 반환)
+
+1. LinkedList 기반의 Queue
+   - enqueue: addLast를 사용해 리스트의 가장 마지막에 원소를 추가
+   - dequeue: removeFirst를 사용해 리스트의 가장 앞 원소를 삭제
+   - [구현 예제](https://github.com/Acka1357/codingtest-java-20/blob/main/%EC%9A%94%EC%95%BD%EB%85%B8%ED%8A%B8/%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC_%EA%B5%AC%ED%98%84%EC%98%88%EC%A0%9C/MyListQueue.java)
+   - [사용 예제](https://github.com/Acka1357/codingtest-java-20/blob/main/%EC%9A%94%EC%95%BD%EB%85%B8%ED%8A%B8/%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC_%EC%82%AC%EC%9A%A9%EC%98%88%EC%A0%9C/Queue.java)
+2. Array 기반의 Queue
+   - enqueue: rearIndex에 원소를 추가하고, rearIndex를 이동
+   - dequeue: firstIndex의 원소를 삭제하고, firstIndex를 이동
+   - [구현 예제](https://github.com/Acka1357/codingtest-java-20/blob/main/%EC%9A%94%EC%95%BD%EB%85%B8%ED%8A%B8/%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC_%EA%B5%AC%ED%98%84%EC%98%88%EC%A0%9C/MyArrayQueue.java)
+
+![img.png](img.png)
+
+
+
