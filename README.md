@@ -420,5 +420,8 @@ A2. `정렬` 후 Binary Search(이진 탐색): O(logN)
 > **Tip.** <br>
 > 기본적으로 Queue, Deque, Stack에서 배열 기반의 `ArrayDeque` 구현체를 사용하는 것이 메모리 연속성 덕분에 캐시 효율이 높고, 
 > 포인터 오버헤드가 없어 LinkedList 기반의 구현체를 사용하는 것보다 빠릅니다.
+> - Queue 메서드 제공: offer(), poll(), peek()
+> - Deque 메서드 제공: addFirst(), addLast()
+> - Stack 메서드 제공: push(), pop()
 
 
