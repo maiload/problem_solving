@@ -367,7 +367,34 @@ A2. `정렬` 후 Binary Search(이진 탐색): O(logN)
    - dequeue: firstIndex의 원소를 삭제하고, firstIndex를 이동
    - [구현 예제](https://github.com/Acka1357/codingtest-java-20/blob/main/%EC%9A%94%EC%95%BD%EB%85%B8%ED%8A%B8/%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC_%EA%B5%AC%ED%98%84%EC%98%88%EC%A0%9C/MyArrayQueue.java)
 
-![img.png](img.png)
+![img.png](img/img.png)
 
+<br>
 
+## Deque (Double Ended Queue)
+양쪽 끝에 원소를 삽입/제거할 수 있는 양방향 Queue
+- push/pop을 각각 addLast/removeFirst로만 이용하면 FIFO
+- Queue는 단방향 List만으로 구현할 수 있지만, Deque는 prev/next를 모두 관리하는 양방향 List가 필요
+- Operations
+  - **Insert**
+    - addFirst/addLast(E e): 원소를 덱의 대기열 앞/뒤에 추가 (덱에 공간이 없다면 Exception 발생)
+    - offerFirst/offerLast(E e): 원소를 덱의 대기열 앞/뒤에 추가 (덱에 공간이 없다면 false 반환)
+  - **Remove**
+    - removeFirst/removeLast(): 덱의 대기열 가장 앞/뒤 원소를 제거하고 반환 (덱이 비었다면 Exception 발생)
+    - pollFirst/pollLast(): 덱의 대기열 가장 앞/뒤 원소를 제거하고 반환 (덱이 비었다면 null 반환)
+  - **Examine**
+    - getFirst/getLast(): 덱의 대기열 가장 앞/뒤 원소 반환 (덱이 비었다면 Exception 발생)
+    - peekFirst/peekLast(): 덱의 대기열 가장 앞/뒤 원소 반환 (덱이 비었다면 null 반환)
+
+1. LinkedList 기반의 Deque
+   - addFirst/addLast: 리스트의 가장 앞/뒤에 새 노드를 연결하여 추가
+   - removeFirst/removeLast: 리스트의 가장 앞/뒤 노드에 대한 연결을 끊어 삭제
+   - [구현 예제](https://github.com/Acka1357/codingtest-java-20/blob/main/%EC%9A%94%EC%95%BD%EB%85%B8%ED%8A%B8/%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC_%EA%B5%AC%ED%98%84%EC%98%88%EC%A0%9C/MyListDeque.java)
+   - [사용 예제](https://github.com/Acka1357/codingtest-java-20/blob/main/%EC%9A%94%EC%95%BD%EB%85%B8%ED%8A%B8/%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC_%EC%82%AC%EC%9A%A9%EC%98%88%EC%A0%9C/Deque.java)
+2. Array 기반의 Deque
+   - addFirst/addLast: firstIndex/lastIndex에 원소를 추가하고 인덱스를 이동
+   - removeFirst/removeLast: firstIndex/lastIndex의 원소를 삭제하고 인덱스를 이동
+   - [구현 예제](https://github.com/Acka1357/codingtest-java-20/blob/main/%EC%9A%94%EC%95%BD%EB%85%B8%ED%8A%B8/%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC_%EA%B5%AC%ED%98%84%EC%98%88%EC%A0%9C/MyArrayDeque.java)
+
+![img_1.png](img/img_1.png)
 
