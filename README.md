@@ -398,3 +398,21 @@ A2. `정렬` 후 Binary Search(이진 탐색): O(logN)
 
 ![img_1.png](img/img_1.png)
 
+<br>
+
+## Stack
+마지막에 넣은 데이터가 먼저 나오는 `후입선출` 자료구조 (`Last-In First-Out`)
+- 대기열의 가장 위에 원소가 추가되고, 가장 위의 원소부터 처리
+- 기록을 쌓아가며 직전의 상태를 복원해야하는 상황에 유용
+- ex) 웹 브라우저 뒤로 가기, 프로그램 실행 취소, 함수 호출 등등
+> LIFO stack의 경우 성능상 Deque 인터페이스를 사용하여 구현하는 것을 권장
+
+1. LinkedList 기반의 stack
+   - push: addLast를 사용해 리스트의 가장 마지막에 원소를 추가
+   - pop: removeLast를 사용해 리스트의 가장 뒷 원소를 삭제
+2. Array 기반의 stack
+   - push: topIndex를 증가시키고 원소를 추가
+   - pop: topIndex의 원소를 삭제하고 topIndex를 감소
+   - 사이즈를 따로 관리하지 않아도 topIndex를 통해 알 수 있다
+
+
