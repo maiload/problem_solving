@@ -457,6 +457,7 @@ A2. `정렬` 후 Binary Search(이진 탐색): O(logN)
 > - **Recursive Case**
 >   - 재귀 호출이 일어나는 부분으로, 함수가 호출될수록 Base Case에 수렴해야 한다
 > > 중복 계산 방지를 위해 동일한 계산이 반복될 가능성이 있다면 메모리에 저장
+> ![img.png](img/img_6.png)
 
 
 
