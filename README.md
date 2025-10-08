@@ -346,6 +346,7 @@ A2. `정렬` 후 Binary Search(이진 탐색): O(logN)
 - 대기열의 가장 뒤에 원소가 추가되고, 가장 앞의 원소부터 처리
 - 요청의 입력/도달 순서대로 처리하는 상황에 유용
 - ex) 티켓팅 대기열, 프린터 출력 처리, 운영체제 스케줄링, 메세지 큐 등등
+
 - Operations
   - **Insert**
     - add(e): 원소를 큐에 추가 (큐에 공간이 없다면 Exception 발생)
@@ -375,6 +376,7 @@ A2. `정렬` 후 Binary Search(이진 탐색): O(logN)
 양쪽 끝에 원소를 삽입/제거할 수 있는 양방향 Queue
 - push/pop을 각각 addLast/removeFirst로만 이용하면 FIFO
 - Queue는 단방향 List만으로 구현할 수 있지만, Deque는 prev/next를 모두 관리하는 양방향 List가 필요
+
 - Operations
   - **Insert**
     - addFirst/addLast(E e): 원소를 덱의 대기열 앞/뒤에 추가 (덱에 공간이 없다면 Exception 발생)
@@ -402,10 +404,19 @@ A2. `정렬` 후 Binary Search(이진 탐색): O(logN)
 
 ## Stack
 마지막에 넣은 데이터가 먼저 나오는 `후입선출` 자료구조 (`Last-In First-Out`)
+- java.util의 Vector를 상속받은 클래스
 - 대기열의 가장 위에 원소가 추가되고, 가장 위의 원소부터 처리
 - 기록을 쌓아가며 직전의 상태를 복원해야하는 상황에 유용
 - ex) 웹 브라우저 뒤로 가기, 프로그램 실행 취소, 함수 호출 등등
 > LIFO stack의 경우 성능상 Deque 인터페이스를 사용하여 구현하는 것을 권장
+
+- Operations
+    - **Insert**
+      - push(): 원소를 스택의 가장 위에 추가 (필요시 자동으로 크기 확장)
+    - **Remove**
+      - pop(): 스택의 가장 위의 원소를 제거하고 반환 (스택이 비었다면 Exception 발생)
+    - **Examine**
+      - peek(): 스택의 가장 위의 원소 반환 (스택이 비었다면 Exception 발생)
 
 1. LinkedList 기반의 stack
    - push: addLast를 사용해 리스트의 가장 마지막에 원소를 추가
