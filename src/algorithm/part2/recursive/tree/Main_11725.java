@@ -37,13 +37,13 @@ public class Main_11725 {
 
     static void find(int node) {
         // base
-        if (check[node]) return;
+//        if (check[node]) return;  // recursive에서 검사하기 때문에 중복 처리 X
+        check[node] = true;
         // recursive
         for (int i = 0; i < tree[node].size(); i++) {
             int next = tree[node].get(i);
             if (!check[next]) {
                 parent[next] = node;
-                check[node] = true;
                 find(next);
             }
         }
