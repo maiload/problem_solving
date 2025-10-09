@@ -1,4 +1,4 @@
-package algorithm.part2.recursive;
+package algorithm.part2.recursive.permutation;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

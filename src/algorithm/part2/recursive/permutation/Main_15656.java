@@ -1,17 +1,19 @@
-package algorithm.part2.recursive;
+package algorithm.part2.recursive.permutation;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class Main_15655 {
+public class Main_15656 {
     static int N;
     static int M;
     static int[] arr;
     static int[] output;
 
-    public static void main(String[] args) throws Exception {
+    static StringBuilder sb = new StringBuilder();
+
+    public static void main(String[] args) throws Exception{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
         N = Integer.parseInt(st.nextToken());
@@ -25,24 +27,24 @@ public class Main_15655 {
         }
 
         Arrays.sort(arr);
-        recFunc(0, 0);
+        recFunc(0);
+        System.out.println(sb);
     }
 
-    static void recFunc(int depth, int startIdx) {
+    static void recFunc(int depth) {
         // base
         if (depth == M) {
-            // 출력
-            StringBuilder sb = new StringBuilder();
+
             for (int i = 0; i < M; i++) {
                 sb.append(output[i]).append(" ");
             }
-            System.out.println(sb);
+            sb.append("\n");
             return;
         }
         // recursive
-        for (int i = startIdx; i < N; i++) {
+        for (int i = 0; i < N; i++) {
             output[depth] = arr[i];
-            recFunc(depth + 1, i + 1);
+            recFunc(depth + 1);
         }
     }
 }
