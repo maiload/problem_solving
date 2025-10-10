@@ -574,6 +574,8 @@ A2. `정렬` 후 Binary Search(이진 탐색): O(logN)
         }
       }
       ```
+  - **연결 요소**
+    - 서로 도달할 수 있는 모든 정점들의 묶음
 
 - 그래프 표현 방법
   1. **인접 행렬**
@@ -629,4 +631,51 @@ A2. `정렬` 후 Binary Search(이진 탐색): O(logN)
   - 특징
     - 최단 거리(가중치 없는 그래프) 탐색에 자주 사용
 
+- `코드 예시`
+  - **DFS (recursion)**
+    ```
+    static void dfsRecursion(int node) {
+        visited[node] = true;
+        for (int i = 0; i < n + 1; i++) {
+            if (graph[node][i] == 1 && !visited[i]) {
+                dfsRecursion(i);
+            }
+        }
+    }
+    ```
+  - **DFS (stack)**
+    ```
+    static void dfsStack(int node) {
+        ArrayDeque<Integer> ad = new ArrayDeque<>();
+        ad.push(node);
+        visited[node] = true;
 
+        while (!ad.isEmpty()) {
+            int now = ad.pop();
+            for (int i = 1; i < n + 1; i++) {
+                if (graph[now][i] == 1 && !visited[i]) {
+                    ad.push(i);
+                    visited[i] = true;
+                }
+            }
+        }
+    }
+    ```
+  - **BFS (queue)**
+    ```
+    static void bfsQueue(int node) {
+        ArrayDeque<Integer> ad = new ArrayDeque<>();
+        ad.offer(node);
+        visited[node] = true;
+
+        while (!ad.isEmpty()) {
+            int now = ad.poll();
+            for (int i = 1; i < n + 1; i++) {
+                if (graph[now][i] == 1 && !visited[i]) {
+                    ad.offer(i);
+                    visited[i] = true;
+                }
+            }
+        }
+    }
+    ```
