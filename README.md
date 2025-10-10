@@ -485,21 +485,31 @@ A2. `정렬` 후 Binary Search(이진 탐색): O(logN)
 <br>
 
 ## Tip.
-1. 알바벳 데이터 저장
+1. 알바벳 문자 저장
    ```
    char[] ch = {'A', 'B', 'C'};
    
-   // A:0, B:1, C:2
+   // 'A':0, 'B':1, 'C':2
    int[] arr = new int[3];
    for (int i = 0; i < 3; i++) {
      arr[i] = ch[i] - 'A';
    }
    ```
-2. 2차원 행렬 탐색
+2. 숫자 문자 저장
+   ```
+   String str = "101101";
+   
+   // '0':0, '1':1, '2':2 ...
+   int[] arr = new int[6];
+   for (int i = 0; i < 6; i++) {
+     arr[i] = str.charAt(i) - '0';
+   }
+   ```
+3. 2차원 행렬 탐색
    ![img.png](img/img_12.png)
     > `주의!` 탐색할 좌표가 배열의 범위를 벗어나는지 확인 필요
     ![img_1.png](img/img_13.png)
-3. 비트마스크
+4. 비트마스크
    - boolean 배열을 int 자료형의 비트를 사용해 나타내는 방법
    - **사용법**
      - 조회: `& (1 << n)`
