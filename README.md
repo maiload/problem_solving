@@ -640,6 +640,7 @@ A2. `정렬` 후 Binary Search(이진 탐색): O(logN)
     - Queue
   - 특징
     - 최단 거리(가중치 없는 그래프) 탐색에 자주 사용
+    - visited 배열을 사용해 `방문 여부`와 `layer(탐색 깊이)`를 확인
 
 - `코드 예시`
   - **DFS (recursion)**
