@@ -17,7 +17,7 @@ Literal로 생성한 문자열은 constant String pool에 저장되고, new로 �
 | charAt(int index)                                      | char         | 
 | length()                                               | int          |
 | equals(Object anObject)                                | boolean      |
-| compareTo(String anotherString                         | int          |
+| compareTo(String anotherString)                        | int          |
 | toCharArray()                                          | char[]|
 | toLowerCase(), to UpperCase()                          | String|
 | contains(CharSequence s)                               | boolean|
