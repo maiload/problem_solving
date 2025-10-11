@@ -234,7 +234,7 @@ A2. `정렬` 후 Binary Search(이진 탐색): O(logN)
       return l;
   }
   ```
-    > Tip) 주로 최적값을 구할 때는 반폐구간 패턴을 사용 (r = max + 1 로 설정)
+    > **Tip.** 주로 최적값을 구할 때는 반폐구간 패턴을 사용 (r = max + 1 로 설정)
     >   - `[l, r)`
     >   - while (l `<` r)
     >   - if 조건식
@@ -287,7 +287,7 @@ A2. `정렬` 후 Binary Search(이진 탐색): O(logN)
           }
       }
       ```
-     > Point.
+     > **Point.**
      > - 주로 이상/이하 조건에서 사용 (슬라이딩 윈도우)
      > 1. for문으로 인덱스(`int i`)로 `int l`을 대체하고, `int r = 0;`만 선언
      > 2. while 조건식: `r < N`, while문 내부에서 r값 증가: `r++`
@@ -300,7 +300,7 @@ A2. `정렬` 후 Binary Search(이진 탐색): O(logN)
           else break;
       }
       ```
-     > Point.
+     > **Point.**
      > - 주로 정확한 매칭 조건에서 사용 (수렴 패턴)
      > 1. l과 r 모두 직접 선언: `int l = 0, r = N - 1;`
      > 2. while 조건식: `l < r`, while문 내부에서 l값 증가, r값 감소: `l++`, `r--`
@@ -316,13 +316,13 @@ A2. `정렬` 후 Binary Search(이진 탐색): O(logN)
   - Vector: ArrayList와 비슷하며 thread-safe 하기에 비교적 느릴 수 있음
 - 순서가 있는 Collection 인덱스를 통한 원소 접근 가능
 - 동일한 원소 저장 가능
-- ListIterator 제공
+- List Iterator 제공
 
-1. ArrayList
+1. **ArrayList**
 - 동적 배열을 사용한 List 구현체
 - [ArrayList 구현 예제](https://github.com/Acka1357/codingtest-java-20/blob/main/%EC%9A%94%EC%95%BD%EB%85%B8%ED%8A%B8/%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC_%EA%B5%AC%ED%98%84%EC%98%88%EC%A0%9C/MyArrayList.java)
 
-2. LinkedList
+2. **LinkedList**
 - 차례로 연결된 Node를 사용한 구현체
 - [SingleLinkedList 구현 예제](https://github.com/Acka1357/codingtest-java-20/blob/main/%EC%9A%94%EC%95%BD%EB%85%B8%ED%8A%B8/%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC_%EA%B5%AC%ED%98%84%EC%98%88%EC%A0%9C/MySingleLinkedList.java)
 - [DoubleLinkedList 구현 예제](https://github.com/Acka1357/codingtest-java-20/blob/main/%EC%9A%94%EC%95%BD%EB%85%B8%ED%8A%B8/%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC_%EA%B5%AC%ED%98%84%EC%98%88%EC%A0%9C/MyDoubleLinkedList.java)
@@ -408,7 +408,7 @@ A2. `정렬` 후 Binary Search(이진 탐색): O(logN)
 - 대기열의 가장 위에 원소가 추가되고, 가장 위의 원소부터 처리
 - 기록을 쌓아가며 직전의 상태를 복원해야하는 상황에 유용
 - ex) 웹 브라우저 뒤로 가기, 프로그램 실행 취소, 함수 호출 등등
-> LIFO stack의 경우 성능상 Deque 인터페이스를 사용하여 구현하는 것을 권장
+> LIFO Stack의 경우 성능상 Deque 인터페이스를 사용하여 구현하는 것을 권장
 
 - Operations
     - **Insert**
@@ -429,11 +429,11 @@ A2. `정렬` 후 Binary Search(이진 탐색): O(logN)
 ![img.png](img/img_2.png)
 
 > **Tip.** <br>
-> 기본적으로 Queue, Deque, Stack에서 배열 기반의 `ArrayDeque` 구현체를 사용하는 것이 메모리 연속성 덕분에 캐시 효율이 높고, 
+> 기본적으로 Queue, Deque, Stack에서 배열 기반의 `ArrayDeque` 구현체를 사용하는 것이 메모리 연속성 덕분에 메모리와 캐시 효율이 높고, 
 > 포인터 오버헤드가 없어 LinkedList 기반의 구현체를 사용하는 것보다 빠릅니다.
 > - Queue 메서드 제공: offer(), poll(), peek()
 > - Deque 메서드 제공: addFirst(), addLast()
-> - Stack 메서드 제공: push(), pop()
+> - Stack 메서드 제공: push(), pop(), peek()
 
 <br>
 
@@ -469,7 +469,7 @@ A2. `정렬` 후 Binary Search(이진 탐색): O(logN)
 <br>
 
 ## BackTracking
-- 재귀를 이용해 답을 찾는 도중에 최적해의가능성이 없어지면 탐색을 중단
+- 재귀를 이용해 답을 찾는 도중에 최적해의 가능성이 없어지면 탐색을 중단
 - 가능성이 있는 경우를 '유망하다' 라고 표현
 - 최악의 경우 완전탐색이 되지만, 랜덤성이 있는 데이터에서는 평균적인 시간 소요가 낮아짐
 
@@ -540,26 +540,26 @@ A2. `정렬` 후 Binary Search(이진 탐색): O(logN)
   - 최상위 노드가 루트
   - 사이클이 없는 비순환적인 구조
 - 용어
-  - 노드(Node): 트리를 구성하는 각각의 요소
-  - 루트(Root): 트리의 최상위 노드
-  - 부모 노드(Parent Node): 어떤 노드의 바로 위 노드
-  - 자식 노드(Child Node): 어떤 노드의 바로 아래 노드들
-  - 리프(Leaf): 자식 노드가 없는 노드
-  - 서브 트리(Subtree): 트리 내에서 특정 노드를 루트로 하는 트리
-  - 레벨(Level): 루트를 Level 1으로 하였을 때, 각 노드의 깊이
+  - **노드(Node)**: 트리를 구성하는 각각의 요소
+  - **루트(Root)**: 트리의 최상위 노드
+  - **부모 노드(Parent Node)**: 어떤 노드의 바로 위 노드
+  - **자식 노드(Child Node)**: 어떤 노드의 바로 아래 노드들
+  - **리프(Leaf)**: 자식 노드가 없는 노드
+  - **서브 트리(Subtree)**: 트리 내에서 특정 노드를 루트로 하는 트리
+  - **레벨(Level)**: 루트를 Level 1으로 하였을 때, 각 노드의 깊이
 
 <br>
 
 ## 그래프
 - 정의
-  ![img.png](img/img_7.png)
+  - ![img.png](img/img_7.png)
 - 용어
   - **무방향 그래프**
     - 간선에 방향이 없는 그래프 (동일한 간선)
-    ![img_2.png](img/img_9.png)
+    - ![img_2.png](img/img_9.png)
   - **방향 그래프**
     - 간선에 방향이 있는 그래프 (서로 다른 간선)
-    ![img_1.png](img/img_8.png)
+    - ![img_1.png](img/img_8.png)
   - **정점의 차수(Degree)**
     - 정점에 연결된 간선의 수
     - 무방향 그래프: 정점의 차수와 간선의 수가 같음
