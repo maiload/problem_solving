@@ -640,7 +640,7 @@ A2. `정렬` 후 Binary Search(이진 탐색): O(logN)
     - Queue
   - 특징
     - 최단 거리(가중치 없는 그래프) 탐색에 자주 사용
-    - visited 배열을 사용해 `방문 여부`와 `layer(탐색 깊이)`를 확인
+    - visited 배열을 사용해 `방문 여부`와 `Level(탐색 깊이)`를 확인
 
 - `코드 예시`
   - **DFS (recursion)**
@@ -690,6 +690,22 @@ A2. `정렬` 후 Binary Search(이진 탐색): O(logN)
         }
     }
     ```
+    > **Tip. BFS와 visited** <br>
+    visited는 미래 상태(정점)를 결정하기 위한 최소 정보 조합을 key로 갖습니다.
+    > 1. 각 차원의 상한이 작고 확정: `다차원 배열`
+    >   - 시간복잡도: O(1)
+    >   - 공간복잡도: int[N][M][K] -> N x M x K x 4byte
+    > 2. 상태가 집합 그 자체일 때: `비트마스크` + `다차원배열`
+    >   - 비트연산으로 매우 빠르고 메모리 효율적
+    >   - 비트마스크를 배열의 키로 사용
+  
+    > **Tip. BFS와 Level** <br>
+    > 1. level이 미래 상태을 결정하기 위한 최소 정보일 때
+    >    - 배열의 key로 사용
+    >    - Queue에 level 정보를 같이 추가 (class 정의)
+    > 2. level과 미래 상태가 무관할 때
+    >    - 배열의 value로 사용
+    >    - `visited[next] = visited[cur] + 1;`
 <br>
 
 ## DP (Dynamic Programming)
