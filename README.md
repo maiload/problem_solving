@@ -516,6 +516,7 @@ A2. `정렬` 후 Binary Search(이진 탐색): O(logN)
      - true 대입: `|= (1 << n)`
      - false 대입: `&= ~(1 << n)`
      - true 카운트: `Integer.bitCount()`
+     - 출력: `Integer.toBinaryString()`
 
 <br>
 
