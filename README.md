@@ -706,7 +706,10 @@ A2. `정렬` 후 Binary Search(이진 탐색): O(logN)
     >    - Queue에 level 정보를 같이 추가 (class 정의)
     > 2. level과 미래 상태가 무관할 때
     >    - 배열의 value로 사용
-    >    - `visited[next] = visited[cur] + 1;`
+    >    - 시작점을 구분하기 위해 초기값을 -1로 설정
+    >      - `Arrays.fill(visited, -1);`
+    >    - 누적값 사용
+    >      - `visited[next] = visited[cur] + 1;`
 <br>
 
 ## DP (Dynamic Programming)
