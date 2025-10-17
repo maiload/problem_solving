@@ -5,7 +5,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayDeque;
 import java.util.StringTokenizer;
 
-public class Main_1280 {
+public class Main_1260 {
     static int N, M, V;
     static int[][] graph;
     static boolean[] visited;
