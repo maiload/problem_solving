@@ -434,6 +434,9 @@ A2. `정렬` 후 Binary Search(이진 탐색): O(logN)
 > - Queue 메서드 제공: offer(), poll(), peek()
 > - Deque 메서드 제공: addFirst(), addLast()
 > - Stack 메서드 제공: push(), pop(), peek()
+> 
+> **주의할 점!** <br>
+> ArrayDeque의 push()와 pop() 메서드는 Stack과 달리 head(앞쪽) 에서 요소를 추가하고 제거합니다.
 
 <br>
 
