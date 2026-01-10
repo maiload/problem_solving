@@ -222,11 +222,24 @@ A2. `정렬` 후 Binary Search(이진 탐색): O(logN)
   | `x > n`   | `upper_bound(n)` |
 
   - lowerBound와 upperBound 둘 다 **목표 구간의 다음 위치**를 반환하도록 설계해야 에러 처리가 쉽다.
-    - 다음 위치(경계)는 항상 존재하는 값이기 때문에, **없음**도 0이나 N으로 자연스럽게 표현할 수 있다.
+    - 다음 위치(경계)는 항상 존재하는 값이기 때문에, **없음**도 0이나 N으로 자연스럽게 표현할 수 있다
+    - 따라서 항상 `r = 마지막 인덱스 + 1` 로 설정
 
   ```
   static int search(int n, int[] arr) {
       int l = 0, r = arr.length;
+      while (l < r) {
+          int m = (l + r) / 2;
+          if (원하는 구간) {
+              l = m + 1;
+          } else {
+              r = m;
+          }
+      }
+      return l;
+  }
+
+  static int search(int n, int[] arr, int l, int r) {
       while (l < r) {
           int m = (l + r) / 2;
           if (원하는 구간) {
