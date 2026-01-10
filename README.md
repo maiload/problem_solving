@@ -183,65 +183,60 @@ Q. N개의 원소를 가진 배열에서 X라는 값이 있는지 알고 싶다�
 A1. 모든 원소를 차례로 탐색: O(N) <br>
 
 A2. `정렬` 후 Binary Search(이진 탐색): O(logN)
-- 중간 값을 기준으로 크기를 비교해 탐색 범위를 절반씩 줄여가며 찾는 방법 
-- **일치하는 값**
-  - 일치하는 값의 경우 이진 탐색보다 HashSet 자료구조의 contains()를 사용하는 것이 더 빠르다 -> 평균 O(1)
-  ```
-  int search(int[] arr, int X) {
-     int l = 0, r = arr.length - 1;     // 폐구간 패턴 [l, r]
-     while (l <= r) {         
-         int m = (l + r) / 2;
-         if (arr[m] < X) l = m + 1;
-         else if (arr[m] > X) r = m - 1;
-         else return m;
-     }   
-     return -1;
-  }
-  ```
-  ```
-  int idx = Arrays.binarySearch(arr, x);
-  // 값이 존재하면 index, 없으면 -1 반환
-  ```
-- **lowerBound, upperBound**
-  - lowerBound: x이상 중 최소값
-  - upperBound: x초과 중 최소값
-  - 중복 값이 없는 경우에는 TreeSet 자료구조의 메서드를 사용할 수도 있습니다.
-    - ceiling(x): x 이상 중 최소값 → lowerBound(x)
-    - floor(x): x 이하 중 최대값
-    - higher(x): x 초과 중 최소값 → upperBound(x) 
-    - lower(x): x 미만 중 최대값
-  > 최적값(최소/최대)을 구하는 문제는 모두 최소값을 구하는 문제로 변환이 가능
-  > - 최소값: lowerBound
-  > - 최대값: upperBound - 1
-  ```
-  int lowerBound(int[] arr, int x) {
-      int l = 0, r = arr.length;     // 반폐구간 패턴 [l, r)
-      while (l < r) {          
-          int m = (l + r) / 2;
-          if (arr[m] >= x) r = m;
-          else l = m + 1;
-      }
-      return l;
-  }
+- 중간 값을 기준으로 크기를 비교해 탐색 범위를 절반씩 줄여가며 찾는 방법 </br>
+
+**Case 1. 일치하는 값**
+  <details>
+  <summary>code 보기</summary>
   
-  int upperBound(int[] arr, int x) {
-      int l = 0, r = arr.length;     // 반폐구간 패턴 [l, r)
-      while (l < r) {          
+  - api
+    ```
+    int idx = Arrays.binarySearch(arr, x);
+    // 값이 존재하면 index, 없으면 -1 반환
+    ```
+  
+  - 구현  
+    ```
+    int search(int[] arr, int X) {
+       int l = 0, r = arr.length - 1;     // 폐구간 패턴 [l, r]
+       while (l <= r) {         
+           int m = (l + r) / 2;
+           if (arr[m] < X) l = m + 1;
+           else if (arr[m] > X) r = m - 1;
+           else return m;
+       }   
+       return -1;
+    }
+    ```
+  </details></br>
+  
+  > 일치하는 값의 경우 이진 탐색보다 HashSet 자료구조의 contains()를 사용하는 것이 더 빠르다 -> 평균 O(1)
+  </br>
+   
+**Case 2. lowerBound, upperBound**
+  | 내가 원하는 구간 | 경계 함수            |
+  | --------- | ---------------- |
+  | `x < n`   | `lower_bound(n)` |
+  | `x ≤ n`   | `upper_bound(n)` |
+  | `x ≥ n`   | `lower_bound(n)` |
+  | `x > n`   | `upper_bound(n)` |
+
+  - lowerBound와 upperBound 둘 다 **목표 구간의 다음 위치**를 반환하도록 설계해야 에러 처리가 쉽다.
+  ```
+  static int search(int n, int[] arr) {
+      int l = 0, r = arr.length;
+      while (l < r) {
           int m = (l + r) / 2;
-          if (arr[m] > x) r = m;
-          else l = m + 1;
+          if (원하는 구간) {
+              l = m + 1;
+          } else {
+              r = m;
+          }
       }
       return l;
   }
   ```
-    > **Tip.** 주로 최적값을 구할 때는 반폐구간 패턴을 사용 (r = max + 1 로 설정)
-    >   - `[l, r)`
-    >   - while (l `<` r)
-    >   - if 조건식
-    >     - 최소(lowerBound): 등호 포함
-    >     - 최대(upperBound): 등호 미포함
-    >   - `r = m`, `l = m + 1`
-    >   - return `l`;
+  - 반환된 l은 항상 목표 구간의 다음 위치(경계)이므로, **목표 구간의 마지막 원소 위치**가 필요할 때만 -1을 한다.
 
 <br>
 
