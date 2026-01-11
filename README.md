@@ -276,10 +276,28 @@ A2. `정렬` 후 Binary Search(이진 탐색): O(logN)
 > 따라서 l과 r의 범위를 직접 설정해야 합니다.
 > - ex. 백준 2805: 주어진 나무의 높이 배열에서의 최적값이 아닌, 절단기에 설정할 수 있는 높이(h)의 최적값을 구하는 문제
 > <img width="649" height="104" alt="image" src="https://github.com/user-attachments/assets/8bb37ade-97af-4720-abb8-b8938e45f02a" />
+> </br>
+> -> 높이(h)가 parameter 이며 이 값의 최소, 최대가 l 과 r이 된다
 
 - 문제 접근 방법
-  1. 구하고자 하는 값의 범위를 설정: `[l, 마지막 인덱스 + 1)`
+  1. 구하고자 하는 값의 범위를 설정: `[l, 마지막 값 + 1)`
   2. 최소값: `lowerBound`, 최대값: `upperBound - 1`
+ 
+```
+static int search(int l, int r) {
+    while (l < r) {
+        int m = (l + r) / 2;
+        if (check(m)) {
+            l = m + 1;
+        } else {
+            r = m;
+        }
+    }
+    return l;
+}
+```
+> Binary Search와 달리 주어진 배열에서가 아닌, 내가 설정한 parameter의 범위에서 최적값을 찾기 때문에 </br>
+> arr[m] 과 비교하는 것이 아닌 별도의 check 메서드를 만들어 검사한다
 
 <br>
 
