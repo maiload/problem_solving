@@ -315,33 +315,29 @@ static int search(int l, int r) {
   3. 두 포인터 중 하나 혹은 둘 다 끝에 도달할 때까지 반복
 
 - Pattern
-  1. 같은 출발점
+  1. **같은 출발점**
       ```
-      int r = 0;
-      for (int i = 0; i < N; i++) {
-          while (r < N && 조건식) {
-              // 코드
-              r++;     
+      int R = -1;
+      for (int L = 0; L < N; L++) {
+          while (R < N - 1 && 조건식) {
+              R++;
+              // R번째 값 추가     
           }
+          // L번째 값 제거
       }
       ```
-     > **Point.**
      > - 주로 이상/이하 조건에서 사용 (슬라이딩 윈도우)
-     > 1. for문으로 인덱스(`int i`)로 `int l`을 대체하고, `int r = 0;`만 선언
-     > 2. while 조건식: `r < N`, while문 내부에서 r값 증가: `r++`
-  2. 시작/끝
+  2. **시작/끝**
       ```
-      int l = 0, r = N - 1;
-      while (l < r) {
-          if (조건식) r--;
-          else if (조건식) l++;
+      int L = 0, R = N - 1;
+      while (L < R) {
+          // 값 매칭 확인
+          if (조건식) R--;
+          else if (조건식) L++;
           else break;
       }
       ```
-     > **Point.**
      > - 주로 정확한 매칭 조건에서 사용 (수렴 패턴)
-     > 1. l과 r 모두 직접 선언: `int l = 0, r = N - 1;`
-     > 2. while 조건식: `l < r`, while문 내부에서 l값 증가, r값 감소: `l++`, `r--`
 
 <br>
 
