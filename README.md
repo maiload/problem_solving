@@ -600,6 +600,10 @@ static int search(int l, int r) {
 - 정의
   - ![img.png](img/img_7.png)
 - 용어
+  - **정점(Vertex)**
+    - 그래프를 구성하는 점 / 노드
+  - **간선(Edge)**
+    - 정점과 정점을 연결하는 선
   - **무방향 그래프**
     - 간선에 방향이 없는 그래프 (동일한 간선)
     - ![img_2.png](img/img_9.png)
