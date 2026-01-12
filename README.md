@@ -669,9 +669,8 @@ static int search(int l, int r) {
        }
        graph[src].add(dst);
        ```
-     - 공간 복잡도
-       - (V + E)
-     - 시간 복잡도
+     - 공간 복잡도 : O(V + E)
+     - 시간 복잡도 : 
        - 모든 정점 탐색: O(V + E)
        - 1개 정점 탐색: O(deg(V))
        - 두 정점 연결 여부 확인: O(dev(V))
