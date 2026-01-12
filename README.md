@@ -651,7 +651,7 @@ static int search(int l, int r) {
   2. **인접 리스트**
      - 간선의 정보를 기반으로 저장하는 방법
        ```
-       List<Node>[] graph = new List[V+1];
+       List<List<Node>>[] graph = new List[V+1];
        for (...) {
          graph[i] = new ArrayList<Node>();
        }
