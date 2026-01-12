@@ -652,11 +652,11 @@ static int search(int l, int r) {
        int[][] adj = new int[V+1][V+1];
        adj[src][dst] = 1;
        ```
-     - 공간 복잡도
-       - V개의 정점이 있다면, (V x V) 만큼의 공간을 사용
-     - 시간 복잡도
-       - 연결관계 조회/저장: O(1)
-       - 정점에 연결된 모든 간선 조회: O(V)
+     - 공간 복잡도 : O(V * V)
+     - 시간 복잡도 : 
+       - 모든 정점 탐색: O(V * V)
+       - 1개 정점 탐색: O(V)
+       - 두 정점 연결 여부 확인: O(1)
      - ex)
        ![img_3.png](img/img_10.png)
  
@@ -670,10 +670,11 @@ static int search(int l, int r) {
        graph[src].add(dst);
        ```
      - 공간 복잡도
-       - V개의 정점, E개의 간선이 있다면 (V + E) 만큼의 공간을 사용
+       - (V + E)
      - 시간 복잡도
-       - 연결관계 조회/저장: O(OutDegree(V))
-       - 정점에 연결된 모든 간선 조회: O(OutDegree(V))
+       - 모든 정점 탐색: O(V + E)
+       - 1개 정점 탐색: O(deg(V))
+       - 두 정점 연결 여부 확인: O(dev(V))
      - ex)
        ![img_4.png](img/img_11.png)
   > `인접 행렬` 방식은 정점의 수가 적고, 간선의 수가 많을 때 유리하고, <br>
