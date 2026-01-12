@@ -691,6 +691,7 @@ static int search(int l, int r) {
     - Stack
   - 특징
     - 경로 탐색, 백트래킹, 조합/순열 등에 자주 사용
+    - 더 이상 방문할 정점이 없으면 탈출하기 때문에, 완전 탐색처럼 명시적인 if 탈출문이 없음
 - **BFS**: 
   - Breadth-First Search
   - 가까운 노드부터 차례대로 탐색하는 방식
@@ -698,7 +699,9 @@ static int search(int l, int r) {
     - Queue
   - 특징
     - 최단 거리(가중치 없는 그래프) 탐색에 자주 사용
-    - visited 배열을 사용해 `방문 여부`와 `Level(탐색 깊이)`를 확인
+    - BFS에서는 같은 정점이 큐에 중복으로 들어가는 것을 방지하기 위해, </br>
+    visited 체크를 큐에서 꺼낼 때가 아니라 큐에 넣는 시점에 수행
+    - visited 배열을 거리 배열로 사용하면 `방문 여부`와 `탐색 레벨`을 동시에 관리할 수 있다
 - **구분 방법**
   - 조기 종료 가능성이 있으면 BFS, 끝까지 다 확인해봐야하는 경우는 DFS
 
@@ -706,7 +709,7 @@ static int search(int l, int r) {
   - **DFS (recursion)**
     ```
     static void dfsRecursion(int node) {
-        visited[node] = true;
+        visited[node] = true;  // 방문 체크
         for (int i = 0; i < n + 1; i++) {
             if (graph[node][i] == 1 && !visited[i]) {
                 dfsRecursion(i);
@@ -719,14 +722,14 @@ static int search(int l, int r) {
     static void dfsStack(int node) {
         ArrayDeque<Integer> ad = new ArrayDeque<>();
         ad.push(node);
-        visited[node] = true;
+        visited[node] = true;  // 최초 방문
 
         while (!ad.isEmpty()) {
             int now = ad.pop();
             for (int i = 1; i < n + 1; i++) {
                 if (graph[now][i] == 1 && !visited[i]) {
                     ad.push(i);
-                    visited[i] = true;
+                    visited[i] = true;  // 방문 체크
                 }
             }
         }
