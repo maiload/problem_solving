@@ -485,11 +485,19 @@ static int search(int l, int r) {
   - 탐색해야할 위치 정보를 전달
   - 다음 분기가 시작되는 지점의 정보를 전달
   - 지금 내가 어디까지 왔는지 및 다음에 어디로 가야하는지
-- 재귀함수 예시
-  1. 재귀함수 이후 출력
-     ![img.png](img/img_3.png)
-  2. 재귀함수 이전 출력
-     ![img_1.png](img/img_4.png)
+- 코드 베이스
+  ```
+  static void rec_fun(int k) {
+      if (k == M) {
+          // 마지막 입력 값 처리
+          return;
+      }
+      for (...) {
+          // 처리
+          rec_fun(k + 1);
+      }
+  }
+  ```
 
 > **Tip**. 재귀함수를 잘 설계하는 방법 <br>
 > ![img.png](img/img_5.png) 
