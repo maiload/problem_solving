@@ -746,17 +746,18 @@ static int search(int l, int r) {
     ```
   - **BFS (queue)**
     ```
-    static void bfsQueue(int node) {
+    static void bfsQueue(int start) {
         ArrayDeque<Integer> ad = new ArrayDeque<>();
-        ad.offer(node);
-        visited[node] = true;
+        ad.offer(start);
+        visited[start] = 0;
 
         while (!ad.isEmpty()) {
             int now = ad.poll();
+            if (now == K) return;
             for (int i = 1; i < n + 1; i++) {
-                if (graph[now][i] == 1 && !visited[i]) {
+                if (graph[now][i] == 1 && visited[i] == -1) {
                     ad.offer(i);
-                    visited[i] = true;
+                    visited[i] = visited[now] + 1;
                 }
             }
         }
