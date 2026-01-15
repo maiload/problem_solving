@@ -499,17 +499,45 @@ static int search(int l, int r) {
   }
   ```
 
-> **Tip**. 재귀함수를 잘 설계하는 방법 <br>
-> ![img.png](img/img_5.png) 
-> - **Base Case**
->   - 일반적으로 재귀 호출이 필요 없는 마지막 입력값일 때의 케이스
->   - 재귀 호출을 멈추고 함수가 종료되는 조건으로, 적어도 하나 이상의 Base Case가 존재해야 한다
-> - **Recursive Case**
->   - 재귀 호출이 일어나는 부분으로, 함수가 호출될수록 Base Case에 수렴해야 한다
->   - > 재귀 호출 인자에 ++, -- 연산을 하게되면 형제 분기들이 사용할 부모 상태값이 오염되어 오답이 발생하니 (++x) 대신에 (x + 1)을 인자로 전달
->   - > 재귀 호출 인자로 전달될 공통된 값들은 클래스 변수로 선언하여 사용 
-> > 중복 계산 방지를 위해 동일한 계산이 반복될 가능성이 있다면 메모리에 저장
-> ![img.png](img/img_6.png)
+> **Tip**. 재귀함수 주의사항 <br>
+> 만약 재귀함수 안에서 상태(인자)를 수정하게 되면 반드시 원복을 해줘야 한다. </br>
+  ```
+  void rec_fun(int pos, int sum) {
+      if (pos == arr.length) {
+          if (sum == t) ans++; 
+          return;
+      } 
+      
+      for (int i = 0; i < 2; i++) {
+          if (i == 0) {
+              sum += arr[pos];  // 수정 
+              rec_fun(pos + 1, sum);
+              sum -= arr[pos];  // 원상복구
+          } else {
+              sum -= arr[pos];  // 수정
+              rec_fun(pos + 1, sum);
+              sum += arr[pos];  // 원상 복구
+          }
+      }
+  }
+  ```
+  ```
+  void rec_fun(int pos, int sum) {
+      if (pos == arr.length) {
+          if (sum == t) ans++; 
+          return;
+      } 
+      
+      for (int i = 0; i < 2; i++) {
+          if (i == 0) {
+              rec_fun(pos + 1, sum + arr[pos]);  // 수정 X
+          } else {
+              rec_fun(pos + 1, sum - arr[pos]);  // 수정 X
+          }
+      }
+  }
+  ```
+
 
 <br>
 
