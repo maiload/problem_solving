@@ -579,9 +579,13 @@ static int search(int l, int r) {
    }
    ```
 3. 2차원 행렬 탐색
-   ![img.png](img/img_12.png)
-    > `주의!` 탐색할 좌표가 배열의 범위를 벗어나는지 확인 필요
-    ![img_1.png](img/img_13.png)
+   ```
+   int[][] direction = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
+   for (int[] dir : direction) {
+     int nR = cR + dir[0];
+     int nC = cC + dir[0];
+   }
+   ```
 4. 비트마스크
    - boolean 배열을 int 자료형의 비트를 사용해 나타내는 방법
    - **사용법**
