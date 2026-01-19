@@ -117,12 +117,18 @@ for (int[] d : dir) {
 }
 ```
 
-> **Tip.** 좌표를 큐에 넣을 때 별도 클래스 없이 연속으로 offer/poll 가능
+> **Tip.** 좌표를 큐에 넣을 때 별도 클래스 없이 가능
 > ```java
+> // 방법 1: 연속 offer/poll
 > ArrayDeque<Integer> q = new ArrayDeque<>();
-> q.offer(x); q.offer(y);        // 삽입
-> 
-> int x = q.poll(), y = q.poll(); // 추출
+> q.offer(x); q.offer(y);
+> int x = q.poll(), y = q.poll();
+>
+> // 방법 2: 배열로 묶어서
+> ArrayDeque<int[]> q = new ArrayDeque<>();
+> q.offer(new int[]{x, y});
+> int[] cur = q.poll();
+> int x = cur[0], y = cur[1];
 > ```
 
 ---

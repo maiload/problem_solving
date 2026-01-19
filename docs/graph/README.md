@@ -7,6 +7,8 @@
 ## 📎 관련 문서
 - [BFS / DFS](../bfs-dfs/README.md)
 - [트리](../tree/README.md)
+- [위상 정렬](../topological-sort/README.md)
+- [다익스트라](../dijkstra/README.md)
 
 ---
 

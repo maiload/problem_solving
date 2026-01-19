@@ -26,16 +26,23 @@
 
 ---
 
-## 추가 주제 (정리 예정)
+## 추가 주제
+
+| 주제 | 링크 |
+|-----|------|
+| 그래프 | [상세 보기](./docs/graph/README.md) |
+| 트리 | [상세 보기](./docs/tree/README.md) |
+| 위상 정렬 | [상세 보기](./docs/topological-sort/README.md) |
+| 다익스트라 | [상세 보기](./docs/dijkstra/README.md) |
+| 정렬 | [상세 보기](./docs/sort/README.md) |
+| 재귀함수 / 백트래킹 | [상세 보기](./docs/recursion/README.md) |
+| 순열 / 조합 | [상세 보기](./docs/permutation-combination/README.md) |
+
+## 정리 예정
 
 - String
 - Array / List
 - Prefix Sum (누적합)
 - Brute Force / Simulation
-- Recursion (재귀함수)
-- BackTracking
 - 분할 정복
-- Tree
-- Graph
 - DP (Dynamic Programming)
-- Permutation / Combination (순열 / 조합)
