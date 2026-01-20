@@ -71,53 +71,35 @@ int search(int[] arr, int X) {
 ## Case 2. lowerBound / upperBound
 
 **lowerBound / upperBound란?**
-- **lowerBound**: n 이상 중 최소
-- **upperBound**: n 이하 중 최대
+- **lowerBound**: n 이상이 되는 최소값
+- **upperBound**: n 초과가 되는 최소값
 
-**왜 `r = 마지막 인덱스 + 1` 인가?**
+**왜 `r = 마지막 값 + 1` 인가?**
 - "목표 구간의 다음 위치(경계)" 를 반환하도록 설계
 - 경계는 항상 `[0, N]` 범위에 존재 → "없음"도 자연스럽게 표현 가능
-
-**lowerBound로 통일하기**
-- 조건문으로 구분 (`<` vs `<=`) 할 수도 있고, 반환값으로 구분 (`l` vs `l-1`) 할 수도 있다
-- **반환값으로 구분하면 조건문을 lowerBound 하나로 통일 가능!**
-
-| 찾고 싶은 것 | 의미 | 반환값 |
-|------------|------|-------|
-| lowerBound | n **이상** 중 최소 | `l` |
-| upperBound | n **이하** 중 최대 | `l - 1` |
 
 ---
 
 ## 🧱 기본 코드
 
 ```java
-static int search(int n, int[] arr) {
-    int l = 0, r = arr.length;
-    while (l < r) {
-        int m = (l + r) / 2;
-        if (arr[m] < n) {
-            l = m + 1;
-        } else {
-            r = m;
-        }
-    }
-    return l;       // lowerBound: n 이상 최소
- // return l - 1;   // upperBound: n 이하 최대
-}
-
-// l, r 직접 설정
 static int search(int n, int[] arr, int l, int r) {
     while (l < r) {
         int m = (l + r) / 2;
-        if (arr[m] < n) {
+        if (check(m, arr, n)) {
             l = m + 1;
         } else {
             r = m;
         }
     }
-    return l;       // lowerBound: n 이상 최소
- // return l - 1;   // upperBound: n 이하 최대
+    return l;       // 최솟값 : lowerBound
+//  return l - 1;   // 최댓값 : upperBound - 1
+}
+```
+```java
+boolean check(int m, int[] arr, int n) {
+    return arr[m] < n;      // n 보다 작을 때만 m + 1    -> lowerBound(m >= n)
+//  return arr[m] <= n;     // n 일 때까지 m + 1       -> upperBound(m > n)
 }
 ```
 
