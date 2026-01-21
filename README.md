@@ -38,6 +38,14 @@
 | 재귀함수 / 백트래킹 | [상세 보기](./docs/recursion/README.md) |
 | 순열 / 조합 | [상세 보기](./docs/permutation-combination/README.md) |
 
+---
+
+## Tips
+
+- [Tips](./docs/tips/README.md)
+
+---
+
 ## 정리 예정
 
 - String
