@@ -32,6 +32,12 @@
 | push/offer | O(1) | O(logN) |
 | pop/poll | O(1) | O(logN) |
 | peek | O(1) | O(1) |
+| size | O(1) | O(1) |
+
+- **ArrayDeque**: 원형 배열 + head/tail 인덱스 관리 → 실제 삭제 없이 인덱스만 이동 → O(1)
+  - 원형 배열: `index % capacity`로 인덱스 순환
+- **PriorityQueue**: 힙 구조 유지 위해 삽입/삭제 시 heapify → O(logN)
+- **size**: 내부 size 변수 관리 → O(1)
 
 ---
 
