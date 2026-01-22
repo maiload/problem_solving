@@ -73,6 +73,17 @@ queue.isEmpty();    // 비어있는지 확인
 
 ---
 
+### ArrayDeque vs LinkedList
+
+| 구현체 | 장점 | 단점 |
+|-------|-----|-----|
+| ArrayDeque | 빠름, 메모리 효율 | null 저장 불가 |
+| LinkedList | null 저장 가능 | 느림, 메모리 비효율 |
+
+> **결론**: 특별한 이유가 없으면 **ArrayDeque 사용**
+
+---
+
 ## Priority Queue (우선순위 큐)
 
 우선순위가 높은 원소부터 처리
@@ -96,11 +107,29 @@ pq.peek();          // 조회
 
 ---
 
-## ArrayDeque vs LinkedList
+### PriorityQueue vs TreeMap
 
-| 구현체 | 장점 | 단점 |
-|-------|-----|-----|
-| ArrayDeque | 빠름, 메모리 효율 | null 저장 불가 |
-| LinkedList | null 저장 가능 | 느림, 메모리 비효율 |
+| 구분 | PriorityQueue | TreeMap |
+|-----|---------------|---------|
+| 최소값 | O(1) peek | O(logN) firstKey |
+| 최대값 | X | O(logN) lastKey |
+| 삭제 | O(logN) poll | O(logN) remove |
 
-> **결론**: 특별한 이유가 없으면 **ArrayDeque 사용**
+> **최소/최대 둘 다 필요하면 TreeMap 사용**
+
+```java
+TreeMap<Integer, Integer> map = new TreeMap<>();  // <값, 개수>
+
+// 삽입
+map.put(num, map.getOrDefault(num, 0) + 1);
+
+// 최소/최대 조회
+map.firstKey();  // 최소값
+map.lastKey();   // 최대값
+
+// 삭제
+int key = map.lastKey();  // 또는 firstKey()
+int cnt = map.get(key);
+if (cnt == 1) map.remove(key);
+else map.put(key, cnt - 1);
+```
