@@ -37,6 +37,7 @@
 | 정렬 | [상세 보기](./docs/sort/README.md) |
 | 재귀함수 / 백트래킹 | [상세 보기](./docs/recursion/README.md) |
 | 순열 / 조합 | [상세 보기](./docs/permutation-combination/README.md) |
+| 문자열 (String) | [상세 보기](./docs/string/README.md) |
 
 ---
 
@@ -48,7 +49,6 @@
 
 ## 정리 예정
 
-- String
 - Array / List
 - Prefix Sum (누적합)
 - Brute Force / Simulation
