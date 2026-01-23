@@ -68,3 +68,40 @@ if (queue.peek()[0] <= currentTime) queue.poll();
 | Event | O(E log E) | 시간 크고, 이벤트 발생 시점만 중요 |
 
 > **발상 전환**: State를 매번 갱신하지 말고, **언제 끝나는지(Event)** 로 변환
+
+---
+
+## [입장, 퇴장] 배열
+
+| 문제 유형 | 정렬 기준 | 예시 |
+|----------|---------|-----|
+| 겹치는 구간을 **하나로 묶기** | 종료 시간 | 회의실 배정, 최대 선택 개수 |
+| 겹치는 구간을 **각각 세기** | 시작/종료 이벤트 | 동시 접속자 수, 겹치는 구간 개수 |
+
+**하나로 묶기 (그리디)**
+```java
+Arrays.sort(intervals, (a, b) -> a[1] - b[1]);  // 종료 기준 정렬
+int end = 0, count = 0;
+for (int[] iv : intervals) {
+    if (iv[0] > end) {
+        end = iv[1];
+        count++;
+    }
+}
+```
+
+**각각 세기 (이벤트 카운트)**
+```java
+List<int[]> events = new ArrayList<>();
+for (int[] iv : intervals) {
+    events.add(new int[]{iv[0], 1});   // 시작: +1
+    events.add(new int[]{iv[1], -1});  // 종료: -1
+}
+events.sort(Comparator.comparingInt((int[] a) -> a[0])
+                        .thenComparingInt(a -> a[1]));
+
+int cur = 0, max = 0;
+for (int[] e : events) {
+    cur += e[1];
+    max = Math.max(max, cur);
+}
