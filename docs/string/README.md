@@ -50,8 +50,10 @@ String str2 = new String("Hello");  // 힙 영역
 | `equals(str)` | boolean | 값 비교 |
 | `compareTo(str)` | int | 사전순 비교 |
 | `substring(start, end)` | String | 부분 문자열 [start, end) |
-| `indexOf(ch)` | int | 문자 위치 (-1: 없음) |
+| `indexOf(ch/str)` | int | 문자/문자열 위치 (-1: 없음) |
 | `contains(str)` | boolean | 포함 여부 |
+| `startsWith(str)` | boolean | 접두사 확인 |
+| `endsWith(str)` | boolean | 접미사 확인 |
 | `split(regex)` | String[] | 구분자로 분리 |
 | `replace(old, new)` | String | 문자열 치환 |
 | `toCharArray()` | char[] | 문자 배열로 변환 |

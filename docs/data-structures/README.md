@@ -73,6 +73,34 @@ queue.isEmpty();    // 비어있는지 확인
 
 ---
 
+### ArrayDeque
+
+```
+[First] ←――――――――――――――→ [Last]
+   ↑                        ↑
+ Stack                    Queue
+(push/pop)               (offer)
+```
+
+| 용도 | 메서드 | 실제 동작                     |
+|-----|-------|---------------------------|
+| **Queue** | `offer()` | `offerLast()`-> `addLast()` |
+| | `poll()` | `pollFirst()`             |
+| | `peek()` | `peekFirst()`             |
+| **Stack** | `push()` | `addFirst()`              |
+| | `pop()` | `removeFirst()`           |
+| | `peek()` | `peekFirst()`             |
+
+> Queue: Last에 넣고 First에서 뺌 (FIFO)
+> Stack: First에 넣고 First에서 뺌 (LIFO)
+
+**양방향 자유롭게 사용**
+- 추가: `addFirst()`, `addLast()`
+- 삭제: `pollFirst()`, `pollLast()`
+- 조회: `peekFirst()`, `peekLast()`
+
+---
+
 ### ArrayDeque vs LinkedList
 
 | 구현체 | 장점 | 단점 |

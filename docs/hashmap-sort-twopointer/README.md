@@ -54,6 +54,37 @@
 | TreeSet/TreeMap | O(logN) | 정렬 순서 |
 | LinkedHashMap | O(1) | 삽입 순서 |
 
+### 순회 패턴
+
+**Set 순회**
+```java
+Set<Integer> set = new HashSet<>();
+for (int num : set) {
+    // auto-unboxing
+}
+```
+
+**Map 순회**
+```java
+Map<String, Integer> map = new HashMap<>();
+
+// Entry 순회 (key, value 둘 다 필요)
+for (Map.Entry<String, Integer> e : map.entrySet()) {
+    String key = e.getKey();
+    int value = e.getValue();
+}
+
+// Key만 순회
+for (String key : map.keySet()) {
+    int value = map.get(key);
+}
+
+// Value만 순회
+for (int value : map.values()) {
+    // value만 필요할 때
+}
+```
+
 ---
 
 ## Sort (정렬)
