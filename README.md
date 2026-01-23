@@ -34,6 +34,7 @@
 | 트리 | [상세 보기](./docs/tree/README.md) |
 | 위상 정렬 | [상세 보기](./docs/topological-sort/README.md) |
 | 다익스트라 | [상세 보기](./docs/dijkstra/README.md) |
+| MST (최소 신장 트리) | [상세 보기](./docs/mst/README.md) |
 | 정렬 | [상세 보기](./docs/sort/README.md) |
 | 재귀함수 / 백트래킹 | [상세 보기](./docs/recursion/README.md) |
 | 순열 / 조합 | [상세 보기](./docs/permutation-combination/README.md) |
