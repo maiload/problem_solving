@@ -1,6 +1,6 @@
 # StringBuilder
 
-[← String으로 돌아가기](./README.md)
+[← String으로 돌아가기](./string.md)
 
 ---
 

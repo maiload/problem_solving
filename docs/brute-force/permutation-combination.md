@@ -1,11 +1,6 @@
 # 순열 / 조합 (Permutation / Combination)
 
-[← 메인으로 돌아가기](../../README.md)
-
----
-
-## 📎 관련 문서
-- [재귀함수 / 백트래킹](../recursion/README.md)
+[← Brute Force로 돌아가기](./README.md)
 
 ---
 

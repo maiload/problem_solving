@@ -1,11 +1,6 @@
-# 재귀함수 (Recursion)
+# 재귀 / 백트래킹
 
-[← 메인으로 돌아가기](../../README.md)
-
----
-
-## 📎 관련 문서
-- [BFS / DFS](../bfs-dfs/README.md)
+[← Brute Force로 돌아가기](./README.md)
 
 ---
 

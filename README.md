@@ -31,27 +31,19 @@
 | 주제 | 링크 |
 |-----|------|
 | 그래프 | [상세 보기](./docs/graph/README.md) |
-| 트리 | [상세 보기](./docs/tree/README.md) |
 | 위상 정렬 | [상세 보기](./docs/topological-sort/README.md) |
 | 다익스트라 | [상세 보기](./docs/dijkstra/README.md) |
 | MST (최소 신장 트리) | [상세 보기](./docs/mst/README.md) |
-| 정렬 | [상세 보기](./docs/sort/README.md) |
-| 재귀함수 / 백트래킹 | [상세 보기](./docs/recursion/README.md) |
-| 순열 / 조합 | [상세 보기](./docs/permutation-combination/README.md) |
-| 문자열 (String) | [상세 보기](./docs/string/README.md) |
+| 정렬 | [상세 보기](./docs/basics/sort.md) |
+| 문자열 (String) | [상세 보기](./docs/basics/string.md) |
+| Array / List | [상세 보기](./docs/basics/array-list.md) |
+| Prefix Sum (누적합) | [상세 보기](./docs/prefix-sum/README.md) |
+| Brute Force (완전 탐색) | [상세 보기](./docs/brute-force/README.md) |
+| 분할 정복 | [상세 보기](./docs/divide-conquer/README.md) |
+| DP (Dynamic Programming) | [상세 보기](./docs/dp/README.md) |
 
 ---
 
 ## Tips
 
 - [Tips](./docs/tips/README.md)
-
----
-
-## 정리 예정
-
-- Array / List
-- Prefix Sum (누적합)
-- Brute Force / Simulation
-- 분할 정복
-- DP (Dynamic Programming)

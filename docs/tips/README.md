@@ -105,3 +105,19 @@ for (int[] e : events) {
     cur += e[1];
     max = Math.max(max, cur);
 }
+```
+
+---
+
+## GCD / LCM (최대공약수 / 최소공배수)
+
+```java
+// GCD (유클리드 호제법)
+int gcd(int a, int b) {
+    return b == 0 ? a : gcd(b, a % b);
+}
+
+// LCM
+int lcm(int a, int b) {
+    return a / gcd(a, b) * b;  // 오버플로우 방지
+}
